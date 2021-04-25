@@ -21,7 +21,10 @@ function agregarPropiedad(objeto, property) {
   // Agrega una propiedad al objeto (argumento "objeto") con el valor `null`
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
-  // Tu código:
+  // Tu código
+  // cuando sabemos el nombre de la propiedad, podemos hacer:
+  // objeto.nombrePropiedad // de esta forma accedes al valor que tiene esa propiedad. 
+  // en este caso, como necesitas acceder a un nombre de propiedad relativo (pq te lo pasan por parametro en la funcion), es necesario usar la notacion con [] y sin "" que te permite acceder a esa propiedad desconocida.
   objeto[property] = null;
   return objeto;
   
@@ -32,6 +35,7 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
+  // cuando dice invoca es que hay que poner ()
   objeto[metodo]();
 }
 
@@ -39,6 +43,7 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
+  // aca se hace con dot notation porque se conoce el nombre de la propiedad.
   var producto = objetoMisterioso.numeroMisterioso*5;
   return producto;
 }
@@ -47,7 +52,7 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // Elimina la propiedad "unaPropiedad" de "objeto"
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
-  // Tu código:
+  // Tu código: 
   delete objeto[unaPropiedad];
   return objeto;
 }
@@ -56,6 +61,14 @@ function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
+  // otra forma de hacerlo:
+//   var objeto = {
+//     nombre,
+//     email, 
+//     password
+//   }
+//   return objeto;
+// } 
   var objeto = {
     nombre: nombre,
     email: email,
@@ -68,6 +81,8 @@ function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
+  // otra forma:
+  // if (usuario.email) {
   if (usuario["email"]) {
     return true;
   }
@@ -91,6 +106,8 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
+  // otra forma:
+  // return usuario.password === password;
   if (usuario["password"] !== password) {
     return false;
   }
@@ -101,7 +118,7 @@ function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
-  usuario["password"] = nuevaPassword;
+  usuario.password = nuevaPassword;
   return usuario;
 }
 
@@ -120,6 +137,8 @@ function pasarUsuarioAPremium(usuarios) {
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
   // Tu código:
+  // [{esPremium: false}, {esPremium: false}]
+  //         i = 0               i = 1
   for (var i = 0; i < usuarios.length; i++) {
     usuarios[i].esPremium = true;
   }
@@ -136,9 +155,9 @@ function sumarLikesDeUsuario(usuario) {
   
   // OJO CON ESTEEEE 
   // usuario = {
-  //    posts: []  
+  //    posts: []
   //  }
-  //  posts = [{post}{post}{post}{post}]
+  //  posts = [{post}, {post}, {post}, {post}]
   //  post = {
   //    likes: entero
   // }
