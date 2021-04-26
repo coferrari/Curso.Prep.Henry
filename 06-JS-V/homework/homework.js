@@ -20,6 +20,20 @@ function crearUsuario() {
   };
   return Usuario;
 }
+// otra forma de hacerlo:
+// class Usuario {
+//   constructor (opciones) {
+//     this.usuario = opciones.usuario;
+//     this.nombre = opciones.nombre;
+//     this.email = opciones.email;
+//     this.password = opciones.password;
+//   }
+//   saludar() {                        // aca no iria prototype pq estas creando la clase desde 0. si existe y queres agregar un metodo, si usas prototype.
+//     return `Hola, mi nombre es ${this.nombre}` 
+//   }
+//   }
+//   return Usuario;
+// }
 
 
 function agregarMetodoPrototype(Constructor) {
@@ -37,10 +51,10 @@ function agregarStringInvertida() {
   // Ej: 'menem'.reverse() => menem
   // 'toni'.reverse() => 'inot'
   // Pista: Necesitarás usar "this" dentro de "reverse"
-  String.prototype.reverse = function() {
-    var stringInvertida = '';
-    for(var i = this.length - 1; i>=0; i--) {
-      stringInvertida = stringInvertida + this.charAt(i);
+  String.prototype.reverse = function() {                 // usamos prototype para definir un metodo en una clase que ya existe pero no tenemos acceso. 
+    var stringInvertida = '';                             // usamos for porque un string se comporta como un objeto/array
+    for(var i = this.length - 1; i>=0; i--) {             // porque queremos empezar desde la ultima e ir retrocediendo en 1, hasta llegar a 0  0 --> constanza <-- length-1
+      stringInvertida = stringInvertida + this.charAt(i); // o this[i]
     }
     return stringInvertida;
   };
@@ -82,11 +96,15 @@ function crearInstanciaPersona(nombre, apellido, edad, dir) {
   nuevaPersona = new Persona ("Juan", "Perez", 22, "Saavedra 123");
   return nuevaPersona;
 }
+// en la resolucion lo hacen asi:
+// let persona = new Persona (nombre, apellido, edad, dir)
+// return persona
+// }
   
 function agregarMetodo() {
   //La función agrega un método "datos" a la clase Persona que toma el nombre y la edad de la persona y devuelve: 
   //Ej: "Juan, 22 años"
-  Persona.prototype.datos = function(nombre, edad) {
+  Persona.prototype.datos = function() {
     return this.nombre + ", " + this.edad + " años";
   }
 }
