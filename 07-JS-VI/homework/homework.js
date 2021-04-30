@@ -6,6 +6,12 @@ function mayuscula(nombre) {
   //Tu código:
   return nombre[0].toUpperCase() + nombre.slice(1);
 }
+// var restoDelNombre = "";
+// for (var i = 1; i <nombre.length; i++) {
+//    restoDelNombre+=nombre [i];
+//  }
+// return restoDelNombre[0].toUpperCase() + restoDelNombre;
+// }
 
 function invocarCallback(cb) {
   // Invoca al callback `cb`
