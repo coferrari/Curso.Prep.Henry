@@ -91,7 +91,7 @@ function capicua(numero){
 
   var num=numero.toString();
   for (let i=0; i<num.length/2; i++) {  // con recorrer la mitad alcanza
-    if (num[i] !== num[num.length-1-[i]]){
+    if (num[i] !== num[num.length-1-i]){
       return "No es capicua";           // si recorre todo el array y ve que no es capicua
     }
   }
