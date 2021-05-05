@@ -12,11 +12,14 @@ function deObjetoAmatriz(objeto){
   //Escribe tu código aquí
   // Object.entries()
   // El método Object.entries() devuelve una matriz de pares propios de una propiedad enumerable [key, value] de un objeto dado, en el mismo orden que es proporcionado por for...in (La diferencia es que un bucle for-in enumera las propiedades en la cadena de prototipos).
-  var array = [];
-  for (let prop in objeto) {
-    array.push([prop, objeto[prop]]);
-  }
-  return array;
+  return Object.entries(objeto)
+  
+  //Resolucion HH:
+  // var array = [];
+  // for (let prop in objeto) {
+  //   array.push([prop, objeto[prop]]);
+  // }
+  // return array;
 }
 
 
